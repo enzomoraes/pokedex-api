@@ -1,4 +1,6 @@
-### To execute
+# Pokedex API
+
+## To execute
   - You must have node.js 16.10^
   - Run: npm install && npm start
 
