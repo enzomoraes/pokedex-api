@@ -1,0 +1,83 @@
+openapi: "3.0.2"
+info:
+  title: API Pokedex
+  description: "
+    API Pokedex foi desenvolvida para atender os requisitos do cliente Angular
+    "
+  version: "1.0"
+  contact:
+    name: Enzo Moraes Pereira
+    email: enzomoraes12@hotmail.com
+servers:
+  - url: http://localhost:3000
+    description: Servidor de desenvolvimento
+
+components:
+  responses:
+    BadRequest:
+      description: Requisição inválida
+      content:
+        application/json:
+          schema: 
+            type: object
+            properties:
+              message:
+                type: string
+                example: Name is required
+                description: Name is required
+paths:
+  /pokemons:
+    post:
+      summary: Capture pokemon
+      description: User enters information about the just captured pokemon
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - image
+              properties:
+                name:
+                  type: string
+                  example: Charmander
+                  description: Pokemon's name
+                image:
+                  type: string
+                  example: https://seeklogo.com/images/C/charmander-logo-62F7FE99A5-seeklogo.com.png
+                  description: Pokemon's image url
+      responses:
+        '201':
+          description: Pokemon captured successfully
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          $ref: '#/components/responses/BadRequest'
+
+    get:
+      summary: List all Pokemons      
+      responses:
+        '200':
+          description: Successfully listed all pokemons
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 8d7d89f3-966d-4b6d-a39a-540e403ad030
+                      description: UUID
+                    name:
+                      type: string
+                      example: Charmander
+                      description: Pokemon's name,
+                    image:
+                      type: string
+                      example: https://seeklogo.com/images/C/charmander-logo-62F7FE99A5-seeklogo.com.png
+                      description: Pokemon's image
