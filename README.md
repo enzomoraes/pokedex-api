@@ -13,7 +13,7 @@ The server will be up at port 3000
 - uuidv4
 
 ## Tests
-To run the tests you may run 'npx jest'. All the suites you be ran.
+To run the tests you may run 'npx jest'. All the suites will be ran.
 
 ## The endpoints specifics are all described in the swagger.yaml at the root of the project
   - You may see them by installing VSCode plugin 'Swagger Viewer'
